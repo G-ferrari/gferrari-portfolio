@@ -1,5 +1,6 @@
 import * as React from 'react'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
+import Script from 'next/script'
 
 import { IconContext } from '@react-icons/all-files'
 
@@ -64,6 +65,18 @@ export default class MyDocument extends Document {
             <Main />
 
             <NextScript />
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=G-LW87K6NWT7`}
+              strategy='afterInteractive'
+            />
+            <Script id='google-analytics' strategy='afterInteractive'>
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-LW87K6NWT7');
+              `}
+            </Script>
           </body>
         </Html>
       </IconContext.Provider>
